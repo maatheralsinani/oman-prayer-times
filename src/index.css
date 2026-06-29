@@ -1,0 +1,387 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200..950&display=swap');
+
+/* إعدادات الخط العامة */
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Tajawal", sans-serif;
+}
+
+/* تنسيق القسم الرئيسي */
+section.container_sec {
+  background:linear-gradient(135deg, #e6ded4, #d1c7bd);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease;
+  position: relative;
+  padding: 40px 10px;
+}
+
+/* زر تغيير اللغة */
+.lang-btn {
+  position: absolute;
+  top: 15px;
+  left: 15px; 
+  background-color: #e6ded4;
+  color: #4a3f35;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 6px 14px;
+  font-size: 13px;
+  border-radius: 30px;
+  cursor: pointer;
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+  font-weight: 500;
+  z-index: 10;
+  box-shadow: 3px 3px 6px #d1c7bd, -3px -3px 6px #ffffff;
+}
+
+.lang-btn:hover {
+  background-color: rgb(169, 109, 109); 
+  border-color: transparent;
+  transform: translateY(-1px);
+  box-shadow: 4px 4px 10px #b8afa6;
+}
+
+/* العنوان الرئيسي */
+.main-title {
+  color: #4a3f35;
+  text-align: center;
+  font-size: 26px;
+  margin-bottom: 20px;
+  font-weight: 800;
+}
+
+/* الحاوية الرئيسية */
+section.container_sec .container {
+  width: 550px; 
+  background-color: #e6ded4;
+  padding: 20px 22px;
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  max-width: 100%;
+  box-shadow: 
+  10px 10px 20px #b8afa6, 
+    -10px -10px 20px #ffffff;
+}
+
+/* القسم العلوي (المدينة والتاريخ) */
+section.container_sec .top_sec {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 12px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  gap: 15px;
+}
+
+.current-city-badge {
+  display: inline-block;
+  background-color: #b87333;
+  padding: 1px 10px;
+  border-radius: 20px;
+  color: #fff;
+  font-size: 13px;
+  margin-top: 3px;
+  font-weight: 400;
+}
+
+/* قائمة اختيار المحافظة */
+section.container_sec .top_sec select {
+  width: 200px;
+  border-radius: 5px;
+  outline: none;
+  background-color: rgb(184, 115, 51);
+  padding: 4px 8px;
+  color: #fff;
+  font-size: 15px;
+  margin-top: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+}
+
+section.container_sec .top_sec h3 {
+  font-size: 18px;
+  color: #5c4f43;
+  font-weight: 700;
+}
+
+section.container_sec .top_sec .date {
+  width: auto;
+  text-align: left;
+}
+
+/* محاذاة التاريخ حسب اللغة */
+[style*="direction: rtl"] .top_sec .date {
+  text-align: right;
+}
+[style*="direction: ltr"] .top_sec .date {
+  text-align: left;
+}
+
+section.container_sec .top_sec .date h4 {
+  font-size: 15px;
+  color: #6e5f51;
+  margin-bottom: 3px;
+  font-weight: 500;
+}
+
+.date-val {
+  font-weight: 300;
+}
+
+section.container_sec .top_sec .date h4.hijri {
+  color: #b87333; 
+}
+
+.loader {
+  color: #fff;
+  font-size: 18px;
+  text-align: center;
+  padding: 30px 0;
+  font-weight: 700;
+}
+
+/* كروت مواقيت الصلاة */
+section.container_sec .prayar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px; 
+  background-color: #e6ded4;
+  margin-bottom: 12px;
+  color: #4a3f35;
+  font-size: 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-weight: 500;
+  transition: transform 0.2s, background-color 0.2s;
+  box-shadow: 4px 4px 8px #d1c7bd, -4px -4px 8px #ffffff;
+}
+
+section.container_sec .prayar:hover {
+  transform: translateY(1px);
+  box-shadow: inset 2px 2px 5px #b8afa6, inset -2px -2px 5px #ffffff;
+  background-color: rgb(158, 96, 38);
+}
+
+/* صندوق الصلاة القادمة والعداد */
+.next-prayer-container {
+  background-color: #e6ded4;
+  border: 1px dashed rgba(255, 255, 255, 0.25);
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+  margin-bottom: 15px;
+  box-shadow: inset 3px 3px 6px #b8afa6, inset -3px -3px 6px #ffffff;
+}
+
+.highlight-prayer {
+  color: #b87333;
+  font-size: 22px;
+  font-weight: 900;
+  margin: 0 5px;
+}
+
+.prayer-badge-title {
+  color: #4a3f35;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.countdown-timer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.timer-label {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.timer-digits {
+  color: #4a3f35;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  background-color: rgba(0, 0, 0, 0.25);
+  padding: 2px 12px;
+  border-radius: 6px;
+  box-shadow: 2px 2px 5px #b8afa6, -2px -2px 5px #ffffff;
+}
+
+/* تنسيقات الموبايل */
+@media (max-width: 576px) {
+  .lang-btn {
+    position: static;
+    margin-bottom: 15px;
+  }
+
+  section.container_sec .top_sec {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+  }
+
+  section.container_sec .top_sec .city,
+  section.container_sec .top_sec .date {
+    width: 100%;
+    text-align: center !important;
+  }
+
+  section.container_sec .top_sec select {
+   width: 100px;
+   max-width: 260px;
+}
+
+  .main-title {
+    font-size: 20px;
+  }
+
+  .highlight-prayer {
+    font-size: 20px;
+  }
+
+  .timer-digits {
+    font-size: 20px;
+  }
+
+  section.container_sec .prayar {
+    font-size: 16px;
+    padding: 8px 15px;
+  }
+}
+
+/* ===================================================
+   تنسيقات قسم أذكار ما بعد الصلاة(Modal)
+   =================================================== */
+
+/* حاوية الرابط/الزر المستدعي للأذكار أسفل الكروت */
+.azkar-trigger-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.azkar-toggle-link {
+  background: none;
+  border: none;
+  color: #b87333;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.azkar-toggle-link:hover {
+  color: #4a3f35;
+  transform: scale(1.05);
+}
+
+/* الغطاء الخلفي الشفاف الذي يغطي الشاشة بالكامل عند فتح النافذة */
+.azkar-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(74, 63, 53, 0.6); /* لون بني دافئ شفاف للغطاء الخلفي */
+  backdrop-filter: blur(4px); /* تأثير ضبابي ناعم للخلفية */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 20px;
+}
+
+/* صندوق محتوى النافذة المنبثقة الرئيسي */
+.azkar-modal-content {
+  background-color: #e6ded4;
+  width: 500px;
+  max-width: 100%;
+  padding: 25px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  animation: fadeInModal 0.3s ease-out;
+}
+
+@keyframes fadeInModal {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.azkar-title {
+  color: #5c4f43;
+  font-size: 19px;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.azkar-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 350px; /* تحديد أقصى ارتفاع مسموح مع تفعيل السكرول للأذكار الطويلة */
+  overflow-y: auto;
+  padding-right: 5px;
+}
+
+/* تخصيص شكل شريط التمرير (Scrollbar) بشكل أنيق */
+.azkar-list::-webkit-scrollbar {
+  width: 5px;
+}
+.azkar-list::-webkit-scrollbar-thumb {
+  background-color: #b87333;
+  border-radius: 10px;
+}
+
+.zikr-card {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 12px;
+  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.zikr-card p {
+  color: #4a3f35;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.6;
+  text-align: justify;
+  text-align-last: center;
+}
+
+/* زر إغلاق النافذة السفلي */
+.azkar-close-btn {
+  background-color: #b87333;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 25px;
+  cursor: pointer;
+  align-self: center;
+  margin-top: 5px;
+  transition: background-color 0.2s, transform 0.2s;
+  box-shadow: 2px 4px 10px rgba(184, 115, 51, 0.3);
+}
+
+.azkar-close-btn:hover {
+  background-color: #9e6026;
+  transform: translateY(-1px);
+}
